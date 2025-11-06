@@ -23,6 +23,7 @@ COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/public ./public
 # App will listen on PORT provided by the platform (falls back to 3000 in package.json)
+ENV PORT=3000
 EXPOSE 3000
 USER 1001
 CMD ["node", "server.js"]
